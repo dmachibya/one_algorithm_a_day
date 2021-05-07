@@ -1,15 +1,18 @@
-#insertion sort algorithm
+def insertionSort(alist):
+    for i in range(0, len(alist)-1):
+        if alist[i]>alist[i+1]:
+            temp = alist[i]
+            temp2 = alist[i+1]
+            alist[i+1] = temp
+            alist[i] = temp2
 
-def insertion_sort(items):
-    output = []
-    for i in items:
-        n = i + 1
+            for i in range(i, 0, -1):
+                if(alist[i]<alist[i-1]):
+                    temp = alist[i]
+                    temp2 = alist[i-1]
+                    alist[i-1] = temp
+                    alist[i] = temp2
 
-        if n == 5:
-            n = 4
-        for j in range(0,i):
-            if items[n] > items[i]:
-                temp = items[i]
-                items[n] = temp
-                items[i] = items[n]
-    return items
+    return alist
+
+print(insertionSort([4,2,5,1,0]))
